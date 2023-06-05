@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+<h1>Current Roles</h1>
+<ul>
+  {% for role in rps %}
+  <li>
+    <p>{{role}}
+      <form action="" method="DELETE">
+        {% csrf_token %}
+        <button>
+          Delete
+        </button>
+      </form>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+
+<h1>Assign Role</h1>
+<ul>
+  {% for role in roles %}
+  <li>
+    <p>{{role.name_role}}
+      <form action="{% url 'assign_role_user' user_username role.id_role %}" method="POST">
+        {% csrf_token %}
+        <button>
+          Add
+        </button>
+      </form>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

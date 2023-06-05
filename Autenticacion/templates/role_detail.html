@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+{{role.id}}
+
+{{error}}
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button>
+    Update
+  </button>
+</form>
+
+<p>
+</p>
+
+<form action="{% url 'delete_role' role.id_role %}" method="POST">
+  {% csrf_token %}
+  <button>
+    Delete
+  </button>
+</form>
+
+<p>
+</p>
+
+<form action="{% url 'assignPermission' role.id_role %}" method="POST">
+  {% csrf_token %}
+  <button>
+    Assign Permissions
+  </button>
+</form>
+
+{% endblock %}

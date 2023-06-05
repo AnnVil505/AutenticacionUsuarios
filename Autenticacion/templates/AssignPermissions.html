@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+<h1>Current Permission</h1>
+<ul>
+  {% for permission in rps %}
+  <li>
+    <p>{{permission}}
+      <form action="" method="DELETE">
+        {% csrf_token %}
+        <button>
+          Delete
+        </button>
+      </form>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+
+<h1>Assign Permission</h1>
+<ul>
+  {% for permission in permissions %}
+  <li>
+    <p>{{permission.name_permission}}
+      <form action="{% url 'assign_role_permission' role_id permission.id_permission %}" method="POST">
+        {% csrf_token %}
+        <button>
+          Add
+        </button>
+      </form>
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

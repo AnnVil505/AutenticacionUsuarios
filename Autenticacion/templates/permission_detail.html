@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+{{Permission.id}}
+
+{{error}}
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button>
+    Update
+  </button>
+</form>
+
+<form action="{% url 'delete_permission' permission.id_permission %}" method="POST">
+  {% csrf_token %}
+  <button>
+    delete
+  </button>
+</form>
+
+{% endblock %}

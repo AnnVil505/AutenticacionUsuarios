@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+<h1>Permission</h1>
+
+<ul>
+  {% for permission in permissions %}
+  <li>
+    <a href="{% url 'permission_detail' permission.id_permission %}">
+      <h1>{{permission.id_permission}}</h1>
+      <p>{{permission.name_permission}}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<form action="{% url 'Cpermission' %}" method="POST">
+    {% csrf_token %}
+    <button>
+      Create
+    </button>
+  </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+<h1>Create Permission</h1>
+
+{{error}}
+<form action="/create_permission/" method="POST">
+  {% csrf_token %}
+  {{form}}
+
+  <button>Create</button>
+</form>
+{% endblock %}

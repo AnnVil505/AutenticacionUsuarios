@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar2.html' %}
+
+<h1>Role</h1>
+
+<ul>
+  {% for role in roles %}
+  <li>
+    <a href="{% url 'role_detail' role.id_role %}">
+      <h1>{{role.id_role}}</h1>
+      <p>{{role.name_role}}</p>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+
+<form action="{% url 'Crole' %}" method="POST">
+    {% csrf_token %}
+    <button>
+      Create
+    </button>
+  </form>
+
+{% endblock %}

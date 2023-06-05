@@ -1,0 +1,16 @@
+{% extends "base.html" %} {% block content %} {% include '_navbar.html' %} 
+
+<div class="container"></div>
+  <h1>User</h1>
+
+  <p>
+    {{error}}
+  </p>
+
+  <form action="/signin/" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary"> Signin </button>
+  </form>
+</div>
+{% endblock %}

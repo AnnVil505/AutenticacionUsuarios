@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block content %} {% include '_navbar.html' %}
+<div class="container">
+  <h1>Home</h1>
+</div>
+
+{% if user.is_authenticated %}
+<h1>User: {{user.username}}</h1>
+{% endif %}
+
+{% endblock %}
